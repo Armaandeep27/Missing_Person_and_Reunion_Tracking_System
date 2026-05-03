@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Overview</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body data-page="overview">
+  <div class="top-bar"></div>
+  <main class="dashboard-layout">
+    <aside class="dashboard-sidebar card">
+      <div class="sidebar-brand">
+        <p class="institution-type">Navigation</p>
+        <h2>Case Modules</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <a class="sidebar-link" data-nav="overview" href="dashboard.html"><i class="fa-solid fa-chart-pie"></i>Overview</a>
+        <a class="sidebar-link" data-nav="persons" href="persons.html"><i class="fa-solid fa-folder-open"></i>Missing Cases</a>
+        <a class="sidebar-link" data-nav="agencies" href="agencies.html"><i class="fa-solid fa-building-shield"></i>Agencies</a>
+        <a class="sidebar-link" data-nav="sightings" href="sightings.html"><i class="fa-solid fa-location-dot"></i>Sightings</a>
+        <a class="sidebar-link" data-nav="rehabilitation" href="rehabilitation.html"><i class="fa-solid fa-house-medical"></i>Rehabilitation</a>
+        <a class="sidebar-link" data-nav="support" href="support.html"><i class="fa-solid fa-hand-holding-heart"></i>Support Programs</a>
+        <a class="sidebar-link" data-nav="reunions" href="reunions.html"><i class="fa-solid fa-people-arrows"></i>Re-Unions</a>
+      </nav>
+    </aside>
+
+    <section class="dashboard-shell">
+      <section class="dashboard-header card">
+        <div>
+          <p class="institution-type">Missing Persons & Re-Union</p>
+          <h1>System Overview</h1>
+          <p>Live database counts for cases, sightings, agencies, reunions, and rehabilitation work.</p>
+        </div>
+        <div class="admin-summary">
+          <strong id="dashboardName">User</strong>
+          <span id="dashboardEmail">-</span>
+          <button class="secondary-button" id="logoutButton">Logout</button>
+        </div>
+      </section>
+
+      <p class="status-message" id="pageStatus"></p>
+
+      <section class="dashboard-grid four-column">
+        <article class="card stat-card"><i class="fa-solid fa-folder-open stat-ico"></i><span>Total Cases</span><strong id="caseCount">0</strong></article>
+        <article class="card stat-card"><i class="fa-solid fa-location-dot stat-ico"></i><span>Sightings</span><strong id="sightingCount">0</strong></article>
+        <article class="card stat-card"><i class="fa-solid fa-building-shield stat-ico"></i><span>Agencies</span><strong id="agencyCount">0</strong></article>
+        <article class="card stat-card"><i class="fa-solid fa-people-arrows stat-ico"></i><span>Reunions</span><strong id="reunionCount">0</strong></article>
+      </section>
+
+      <section class="dashboard-grid two-column">
+        <section class="card">
+          <h2>Case Status Breakdown</h2>
+          <div class="table-wrap">
+            <table><thead><tr><th>Status</th><th>Total</th></tr></thead><tbody id="statusRows"></tbody></table>
+          </div>
+        </section>
+        <section class="card">
+          <h2>Recent Sightings</h2>
+          <div class="table-wrap">
+            <table><thead><tr><th>Case</th><th>Location</th><th>Status</th></tr></thead><tbody id="recentRows"></tbody></table>
+          </div>
+        </section>
+      </section>
+    </section>
+  </main>
+  <script src="admin-common.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Missing Track</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="auth-wrapper">
+    <aside class="auth-art">
+      <div class="idx-brand" style="color:white">
+        <span class="idx-brand-icon"><i class="fa-solid fa-people-arrows"></i></span>
+        Missing Track
+      </div>
+      <div>
+        <h2>Role-based access for rescue, support, and re-union work.</h2>
+        <p>Choose your portal role. Admins manage the system, agencies manage case operations, and sponsors manage support programs.</p>
+      </div>
+      <span>Centralized DBMS Project · MySQL + Express</span>
+    </aside>
+
+    <main class="auth-form-wrap">
+      <section class="auth-card">
+        <a href="index.html">Back to home</a>
+        <div class="auth-tabs">
+          <button class="auth-tab active" type="button" data-mode="login">Login</button>
+          <button class="auth-tab" type="button" data-mode="signup">Sign Up</button>
+        </div>
+        <h1 id="authTitle">Portal Login</h1>
+        <p class="status-message" id="roleHint">Admin has full access to every module.</p>
+
+        <div class="role-switcher">
+          <button class="role-chip active" type="button" data-role="admin">
+            Admin
+            <small>All modules</small>
+          </button>
+          <button class="role-chip" type="button" data-role="agency">
+            Agency
+            <small>Cases and rescue</small>
+          </button>
+          <button class="role-chip" type="button" data-role="sponsor">
+            Sponsor
+            <small>Support only</small>
+          </button>
+        </div>
+        <p class="role-note" id="credentialHint">Demo login: admin / admin123</p>
+
+        <form id="loginForm">
+          <input type="hidden" id="role" value="admin">
+          <div class="field signup-only">
+            <label>Full Name</label>
+            <div class="input-box">
+              <i class="fa-solid fa-id-card"></i>
+              <input id="fullName" placeholder="Your full name">
+            </div>
+          </div>
+          <div class="field signup-only">
+            <label>Email</label>
+            <div class="input-box">
+              <i class="fa-solid fa-envelope"></i>
+              <input id="email" type="email" placeholder="name@example.com">
+            </div>
+          </div>
+          <div class="field">
+            <label>User ID</label>
+            <div class="input-box">
+              <i class="fa-solid fa-user"></i>
+              <input id="userId" required placeholder="admin">
+            </div>
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <div class="input-box">
+              <i class="fa-solid fa-lock"></i>
+              <input id="password" type="password" required placeholder="admin123">
+            </div>
+          </div>
+          <p class="status-message" id="loginStatus"></p>
+          <button class="login-button" id="authSubmit" type="submit">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            Login
+          </button>
+        </form>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
