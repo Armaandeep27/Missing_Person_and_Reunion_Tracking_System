@@ -4,7 +4,7 @@ A DBMS project built from the provided Student Management System interface, conv
 
 ## 🌐 Live Project
 Access the deployed application here:  
-👉 https://missing-person-and-reunion-tracking.onrender.com/login.html
+👉 https://missing-person-and-reunion-tracking.onrender.com/index.html
 
 ## 🛠️ Run the database
 Open `database.sql` in MySQL Workbench and run the full script. It creates normalized tables, foreign keys, triggers, a stored procedure, and sample records.
