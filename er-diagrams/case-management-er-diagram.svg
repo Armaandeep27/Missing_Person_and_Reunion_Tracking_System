@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1220" height="760" viewBox="0 0 1220 760">
+  <style>
+    .canvas { fill: #ffffff; }
+    .box { fill: #ffffff; stroke: #b8b8b8; stroke-width: 1.2; }
+    .header { fill: #f2f2f2; stroke: #b8b8b8; stroke-width: 1.2; }
+    .title { fill: #222222; font: 700 15px Arial, sans-serif; letter-spacing: .1px; }
+    .field { fill: #222222; font: 13px Arial, sans-serif; }
+    .dot { fill: #999999; }
+    .badge { stroke-width: 0; }
+    .badge.pk { fill: #ffe3a3; }
+    .badge.fk { fill: #cfe8ff; }
+    .badge-text { fill: #222222; font: 700 10px Arial, sans-serif; }
+    .edge path { fill: none; stroke: #666666; stroke-width: 1.4; stroke-linecap: square; stroke-linejoin: round; }
+    .card { fill: #333333; font: 700 11px Arial, sans-serif; }
+    .label-bg { fill: #ffffff; stroke: #d0d0d0; }
+    .label { fill: #333333; font: 700 11px Arial, sans-serif; }
+    .diagram-title { fill: #111111; font: 700 24px Arial, sans-serif; letter-spacing: .1px; }
+    .subtitle { fill: #555555; font: 13px Arial, sans-serif; }
+  </style>
+  <rect class="canvas" x="0" y="0" width="1220" height="760"/>
+  <text x="48" y="46" class="diagram-title">Case Management ER Diagram</text>
+  <text x="48" y="70" class="subtitle">Agency assignment, sightings, rehabilitation, and reunion tracking</text>
+  
+    <g class="edge">
+      <path d="M 362 250 L 455 250"/>
+      <text x="380" y="243" text-anchor="middle" class="card">1</text>
+      <text x="437" y="243" text-anchor="middle" class="card">0..N</text>
+    </g>
+    <g class="edge">
+      <path d="M 747 245 L 790 245 L 790 200 L 840 200"/>
+      <text x="765" y="238" text-anchor="middle" class="card">1</text>
+      <text x="822" y="193" text-anchor="middle" class="card">0..N</text>
+    </g>
+    <g class="edge">
+      <path d="M 747 305 L 795 305 L 795 480 L 840 480"/>
+      <text x="765" y="298" text-anchor="middle" class="card">1</text>
+      <text x="822" y="473" text-anchor="middle" class="card">0..N</text>
+    </g>
+    <g class="edge">
+      <path d="M 601 469 L 601 505"/>
+      <text x="601" y="480" text-anchor="middle" class="card">1</text>
+      <text x="601" y="480" text-anchor="middle" class="card">0..N</text>
+    </g>
+  
+    <g class="table">
+      <rect x="70" y="125" width="292" height="272" rx="6" class="box"/>
+      <rect x="70" y="125" width="292" height="42" rx="6" class="header"/>
+      <path d="M 70 161 H 362 V 167 H 70 Z" class="header"/>
+      <text x="88" y="152" class="title">agencies</text>
+      
+      <rect x="86" y="173" width="30" height="18" rx="4" class="badge pk"/>
+         <text x="101" y="186" text-anchor="middle" class="badge-text">PK</text>
+      <text x="128" y="187" class="field">id</text>
+      <circle cx="101" cy="206" r="2.5" class="dot"/>
+      <text x="128" y="211" class="field">agency_code</text>
+      <circle cx="101" cy="230" r="2.5" class="dot"/>
+      <text x="128" y="235" class="field">agency_name</text>
+      <circle cx="101" cy="254" r="2.5" class="dot"/>
+      <text x="128" y="259" class="field">agency_type</text>
+      <circle cx="101" cy="278" r="2.5" class="dot"/>
+      <text x="128" y="283" class="field">contact_person</text>
+      <circle cx="101" cy="302" r="2.5" class="dot"/>
+      <text x="128" y="307" class="field">phone</text>
+      <circle cx="101" cy="326" r="2.5" class="dot"/>
+      <text x="128" y="331" class="field">email</text>
+      <circle cx="101" cy="350" r="2.5" class="dot"/>
+      <text x="128" y="355" class="field">city</text>
+      <circle cx="101" cy="374" r="2.5" class="dot"/>
+      <text x="128" y="379" class="field">state</text>
+    </g>
+    <g class="table">
+      <rect x="455" y="125" width="292" height="344" rx="6" class="box"/>
+      <rect x="455" y="125" width="292" height="42" rx="6" class="header"/>
+      <path d="M 455 161 H 747 V 167 H 455 Z" class="header"/>
+      <text x="473" y="152" class="title">missing_persons</text>
+      
+      <rect x="471" y="173" width="30" height="18" rx="4" class="badge pk"/>
+         <text x="486" y="186" text-anchor="middle" class="badge-text">PK</text>
+      <text x="513" y="187" class="field">id</text>
+      <circle cx="486" cy="206" r="2.5" class="dot"/>
+      <text x="513" y="211" class="field">case_no</text>
+      <circle cx="486" cy="230" r="2.5" class="dot"/>
+      <text x="513" y="235" class="field">full_name</text>
+      <circle cx="486" cy="254" r="2.5" class="dot"/>
+      <text x="513" y="259" class="field">gender</text>
+      <circle cx="486" cy="278" r="2.5" class="dot"/>
+      <text x="513" y="283" class="field">age</text>
+      <circle cx="486" cy="302" r="2.5" class="dot"/>
+      <text x="513" y="307" class="field">guardian_name</text>
+      <circle cx="486" cy="326" r="2.5" class="dot"/>
+      <text x="513" y="331" class="field">guardian_phone</text>
+      <circle cx="486" cy="350" r="2.5" class="dot"/>
+      <text x="513" y="355" class="field">last_seen_date</text>
+      <circle cx="486" cy="374" r="2.5" class="dot"/>
+      <text x="513" y="379" class="field">last_seen_location</text>
+      <circle cx="486" cy="398" r="2.5" class="dot"/>
+      <text x="513" y="403" class="field">status</text>
+      <circle cx="486" cy="422" r="2.5" class="dot"/>
+      <text x="513" y="427" class="field">rehabilitation_status</text>
+      <rect x="471" y="437" width="30" height="18" rx="4" class="badge fk"/>
+         <text x="486" y="450" text-anchor="middle" class="badge-text">FK</text>
+      <text x="513" y="451" class="field">assigned_agency_id</text>
+    </g>
+    <g class="table">
+      <rect x="840" y="90" width="292" height="248" rx="6" class="box"/>
+      <rect x="840" y="90" width="292" height="42" rx="6" class="header"/>
+      <path d="M 840 126 H 1132 V 132 H 840 Z" class="header"/>
+      <text x="858" y="117" class="title">sightings</text>
+      
+      <rect x="856" y="138" width="30" height="18" rx="4" class="badge pk"/>
+         <text x="871" y="151" text-anchor="middle" class="badge-text">PK</text>
+      <text x="898" y="152" class="field">id</text>
+      <rect x="856" y="162" width="30" height="18" rx="4" class="badge fk"/>
+         <text x="871" y="175" text-anchor="middle" class="badge-text">FK</text>
+      <text x="898" y="176" class="field">case_id</text>
+      <circle cx="871" cy="195" r="2.5" class="dot"/>
+      <text x="898" y="200" class="field">reported_by_name</text>
+      <circle cx="871" cy="219" r="2.5" class="dot"/>
+      <text x="898" y="224" class="field">reporter_phone</text>
+      <circle cx="871" cy="243" r="2.5" class="dot"/>
+      <text x="898" y="248" class="field">location</text>
+      <circle cx="871" cy="267" r="2.5" class="dot"/>
+      <text x="898" y="272" class="field">sighting_date</text>
+      <circle cx="871" cy="291" r="2.5" class="dot"/>
+      <text x="898" y="296" class="field">confidence</text>
+      <circle cx="871" cy="315" r="2.5" class="dot"/>
+      <text x="898" y="320" class="field">status</text>
+    </g>
+    <g class="table">
+      <rect x="840" y="365" width="292" height="224" rx="6" class="box"/>
+      <rect x="840" y="365" width="292" height="42" rx="6" class="header"/>
+      <path d="M 840 401 H 1132 V 407 H 840 Z" class="header"/>
+      <text x="858" y="392" class="title">rehabilitation_records</text>
+      
+      <rect x="856" y="413" width="30" height="18" rx="4" class="badge pk"/>
+         <text x="871" y="426" text-anchor="middle" class="badge-text">PK</text>
+      <text x="898" y="427" class="field">id</text>
+      <rect x="856" y="437" width="30" height="18" rx="4" class="badge fk"/>
+         <text x="871" y="450" text-anchor="middle" class="badge-text">FK</text>
+      <text x="898" y="451" class="field">person_id</text>
+      <circle cx="871" cy="470" r="2.5" class="dot"/>
+      <text x="898" y="475" class="field">shelter_name</text>
+      <circle cx="871" cy="494" r="2.5" class="dot"/>
+      <text x="898" y="499" class="field">health_status</text>
+      <circle cx="871" cy="518" r="2.5" class="dot"/>
+      <text x="898" y="523" class="field">counselling_status</text>
+      <circle cx="871" cy="542" r="2.5" class="dot"/>
+      <text x="898" y="547" class="field">education_support</text>
+      <circle cx="871" cy="566" r="2.5" class="dot"/>
+      <text x="898" y="571" class="field">status</text>
+    </g>
+    <g class="table">
+      <rect x="455" y="505" width="292" height="224" rx="6" class="box"/>
+      <rect x="455" y="505" width="292" height="42" rx="6" class="header"/>
+      <path d="M 455 541 H 747 V 547 H 455 Z" class="header"/>
+      <text x="473" y="532" class="title">reunions</text>
+      
+      <rect x="471" y="553" width="30" height="18" rx="4" class="badge pk"/>
+         <text x="486" y="566" text-anchor="middle" class="badge-text">PK</text>
+      <text x="513" y="567" class="field">id</text>
+      <rect x="471" y="577" width="30" height="18" rx="4" class="badge fk"/>
+         <text x="486" y="590" text-anchor="middle" class="badge-text">FK</text>
+      <text x="513" y="591" class="field">person_id</text>
+      <circle cx="486" cy="610" r="2.5" class="dot"/>
+      <text x="513" y="615" class="field">reunion_date</text>
+      <circle cx="486" cy="634" r="2.5" class="dot"/>
+      <text x="513" y="639" class="field">family_contact</text>
+      <circle cx="486" cy="658" r="2.5" class="dot"/>
+      <text x="513" y="663" class="field">verified_by</text>
+      <circle cx="486" cy="682" r="2.5" class="dot"/>
+      <text x="513" y="687" class="field">outcome</text>
+      <circle cx="486" cy="706" r="2.5" class="dot"/>
+      <text x="513" y="711" class="field">created_at</text>
+    </g>
+</svg>

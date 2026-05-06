@@ -92,7 +92,10 @@ CREATE TABLE rehabilitation_records (
 
 CREATE TABLE support_programs (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  person_id INT NOT NULL,
+  person_id INT,
+  target_type ENUM('Single Person','Multiple People','Whole Agency') NOT NULL DEFAULT 'Single Person',
+  target_agency_id INT,
+  donation_group_id VARCHAR(36),
   sponsor_name VARCHAR(140) NOT NULL,
   sponsor_phone VARCHAR(30),
   support_type ENUM('Sponsorship','Scholarship','Medical Aid','Shelter Aid','Food Support','Other') NOT NULL,
@@ -100,7 +103,9 @@ CREATE TABLE support_programs (
   start_date DATE,
   status ENUM('Planned','Active','Completed','Paused') NOT NULL DEFAULT 'Planned',
   notes TEXT,
-  FOREIGN KEY (person_id) REFERENCES missing_persons(id) ON DELETE CASCADE
+  FOREIGN KEY (person_id) REFERENCES missing_persons(id) ON DELETE CASCADE,
+  FOREIGN KEY (target_agency_id) REFERENCES agencies(id) ON DELETE SET NULL,
+  INDEX idx_support_group (donation_group_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE reunions (
@@ -179,6 +184,17 @@ INSERT INTO support_programs(person_id,sponsor_name,sponsor_phone,support_type,a
 
 INSERT INTO reunions(person_id,reunion_date,family_contact,verified_by,outcome,notes) VALUES
 (3,'2026-04-25','Sanjay Verma / 9811100003','Safe Haven Shelter','Reunited','Identity verified through guardian documents.');
+
+-- Existing database update for the support donation flow:
+-- Run these ALTER statements once if you already created the database before this update.
+-- ALTER TABLE support_programs
+--   MODIFY COLUMN person_id INT NULL,
+--   ADD COLUMN target_type ENUM('Single Person','Multiple People','Whole Agency') NOT NULL DEFAULT 'Single Person' AFTER person_id,
+--   ADD COLUMN target_agency_id INT NULL AFTER target_type,
+--   ADD COLUMN donation_group_id VARCHAR(36) NULL AFTER target_agency_id,
+--   ADD INDEX idx_support_group (donation_group_id),
+--   ADD CONSTRAINT fk_support_target_agency FOREIGN KEY (target_agency_id) REFERENCES agencies(id) ON DELETE SET NULL;
+-- UPDATE support_programs SET person_id = NULL WHERE target_type = 'Whole Agency';
 
 SELECT 'Missing Persons & Re-Union database created successfully' AS status;
 SHOW TABLES;

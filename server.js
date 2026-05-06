@@ -48,7 +48,7 @@ async function logActivity(userId, entityType, entityId, action, details) {
 async function getActor(req) {
   const userId = req.get('X-User-Id') || req.body?.userId || req.query?.userId;
   if (!userId) return null;
-  const rows = await q('SELECT id, role, status FROM users WHERE id = ? LIMIT 1', [userId]);
+  const rows = await q('SELECT id, full_name, username, email, role, status FROM users WHERE id = ? LIMIT 1', [userId]);
   const user = rows[0];
   return user && user.status === 'Active' ? user : null;
 }
@@ -274,8 +274,76 @@ function crudRecords(route, table, responseKey, idName, selectSql, insertSql, up
 }
 
 crudRecords('rehabilitation','rehabilitation_records','rehabilitation','rehabId','SELECT rr.*, mp.case_no, mp.full_name FROM rehabilitation_records rr JOIN missing_persons mp ON mp.id=rr.person_id ORDER BY rr.updated_at DESC','INSERT INTO rehabilitation_records(person_id,shelter_name,health_status,counselling_status,education_support,status,notes) VALUES (?,?,?,?,?,?,?)','UPDATE rehabilitation_records SET person_id=?,shelter_name=?,health_status=?,counselling_status=?,education_support=?,status=?,notes=? WHERE id=?',{required:['personId'],values:b=>[b.personId,b.shelterName||null,b.healthStatus||null,b.counsellingStatus||null,b.educationSupport||null,b.status||'Pending',b.notes||null]},b=>b.personId,['admin','agency']);
-crudRecords('support-programs','support_programs','support-programs','supportId','SELECT sp.*, mp.case_no, mp.full_name FROM support_programs sp JOIN missing_persons mp ON mp.id=sp.person_id ORDER BY sp.id DESC','INSERT INTO support_programs(person_id,sponsor_name,sponsor_phone,support_type,amount,start_date,status,notes) VALUES (?,?,?,?,?,?,?,?)','UPDATE support_programs SET person_id=?,sponsor_name=?,sponsor_phone=?,support_type=?,amount=?,start_date=?,status=?,notes=? WHERE id=?',{required:['personId','sponsorName','supportType'],values:b=>[b.personId,b.sponsorName,b.sponsorPhone||null,b.supportType,b.amount||0,b.startDate||null,b.status||'Planned',b.notes||null]},b=>b.sponsorName,['admin','sponsor']);
 crudRecords('reunions','reunions','reunions','reunionId','SELECT r.*, mp.case_no, mp.full_name FROM reunions r JOIN missing_persons mp ON mp.id=r.person_id ORDER BY r.reunion_date DESC','INSERT INTO reunions(person_id,reunion_date,family_contact,verified_by,outcome,notes) VALUES (?,?,?,?,?,?)','UPDATE reunions SET person_id=?,reunion_date=?,family_contact=?,verified_by=?,outcome=?,notes=? WHERE id=?',{required:['personId','reunionDate','familyContact'],values:b=>[b.personId,b.reunionDate,b.familyContact,b.verifiedBy||null,b.outcome||'Reunited',b.notes||null]},b=>b.familyContact,['admin','agency']);
+
+async function supportTargets(body) {
+  const rawIds = body.donationTarget === 'Multiple People' ? body.personIds : body.personId;
+  const ids = (Array.isArray(rawIds) ? rawIds : String(rawIds || '').split(','))
+    .map((id) => Number(id))
+    .filter((id) => Number.isInteger(id) && id > 0);
+  return [...new Set(ids)];
+}
+
+app.get('/api/support-programs', async (req, res) => {
+  try {
+    const rows = await q('SELECT sp.*, mp.case_no, mp.full_name, a.agency_name FROM support_programs sp LEFT JOIN missing_persons mp ON mp.id=sp.person_id LEFT JOIN agencies a ON a.id=sp.target_agency_id ORDER BY sp.id DESC');
+    res.json({ ok: true, 'support-programs': rows });
+  } catch (error) {
+    res.status(500).json({ ok: false, message: 'Failed to load support programs.', error: error.message });
+  }
+});
+
+app.post('/api/support-programs', allowRoles('admin', 'sponsor'), async (req, res) => {
+  const b = req.body;
+  const sponsorName = req.actor.role === 'sponsor' ? (req.actor.full_name || req.actor.username) : b.sponsorName;
+  if (!requireFields(res, { ...b, sponsorName }, ['sponsorName', 'supportType'])) return;
+  const targetType = ['Single Person', 'Multiple People', 'Whole Agency'].includes(b.donationTarget) ? b.donationTarget : 'Single Person';
+  try {
+    const groupId = targetType === 'Single Person' ? null : crypto.randomUUID();
+    const targetAgencyId = targetType === 'Whole Agency' ? b.agencyId : null;
+    let personIds = await supportTargets({ ...b, donationTarget: targetType });
+    if (targetType === 'Whole Agency') {
+      if (!targetAgencyId) return res.status(400).json({ ok: false, message: 'Select an agency.' });
+      const agencyRows = await q('SELECT id FROM agencies WHERE id = ? LIMIT 1', [targetAgencyId]);
+      if (!agencyRows.length) return res.status(400).json({ ok: false, message: 'Selected agency was not found.' });
+      personIds = [null];
+    }
+    if (!personIds.length) return res.status(400).json({ ok: false, message: 'Select at least one person.' });
+    const values = personIds.map((personId) => [personId, targetType, targetAgencyId, groupId, sponsorName, b.sponsorPhone || null, b.supportType, b.amount || 0, b.startDate || null, b.status || 'Planned', b.notes || null]);
+    const [r] = await pool.query(
+      'INSERT INTO support_programs(person_id,target_type,target_agency_id,donation_group_id,sponsor_name,sponsor_phone,support_type,amount,start_date,status,notes) VALUES ?',
+      [values]
+    );
+    await logActivity(b.userId, 'support_programs', r.insertId, 'created', sponsorName + ' donated to ' + (targetType === 'Whole Agency' ? 'an agency' : personIds.length + ' recipient(s)'));
+    res.json({ ok: true, supportId: r.insertId, count: personIds.length, message: targetType === 'Whole Agency' ? 'Agency support program added.' : personIds.length === 1 ? 'Support program added.' : 'Support programs added for ' + personIds.length + ' people.' });
+  } catch (error) {
+    res.status(500).json({ ok: false, message: 'Failed to save support program.', error: error.message });
+  }
+});
+
+app.put('/api/support-programs/:id', allowRoles('admin'), async (req, res) => {
+  const b = req.body;
+  if (!requireFields(res, b, ['personId', 'sponsorName', 'supportType'])) return;
+  try {
+    await pool.query(
+      'UPDATE support_programs SET person_id=?,target_type=?,target_agency_id=?,sponsor_name=?,sponsor_phone=?,support_type=?,amount=?,start_date=?,status=?,notes=? WHERE id=?',
+      [b.personId, 'Single Person', null, b.sponsorName, b.sponsorPhone || null, b.supportType, b.amount || 0, b.startDate || null, b.status || 'Planned', b.notes || null, req.params.id]
+    );
+    await logActivity(b.userId, 'support_programs', req.params.id, 'updated', b.sponsorName);
+    res.json({ ok: true, message: 'Support program updated.' });
+  } catch (error) {
+    res.status(500).json({ ok: false, message: 'Failed to update support program.', error: error.message });
+  }
+});
+
+app.delete('/api/support-programs/:id', allowRoles('admin'), async (req, res) => {
+  try {
+    await pool.query('DELETE FROM support_programs WHERE id=?', [req.params.id]);
+    res.json({ ok: true, message: 'Support program deleted.' });
+  } catch (error) {
+    res.status(500).json({ ok: false, message: 'Failed to delete support program.', error: error.message });
+  }
+});
 
 app.get('*', (req, res) => res.sendFile(path.join(publicDir, 'index.html')));
 app.listen(port, '0.0.0.0', () => console.log('Server running at http://0.0.0.0:' + port));

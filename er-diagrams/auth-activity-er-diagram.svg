@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520">
+  <style>
+    .canvas { fill: #ffffff; }
+    .box { fill: #ffffff; stroke: #b8b8b8; stroke-width: 1.2; }
+    .header { fill: #f2f2f2; stroke: #b8b8b8; stroke-width: 1.2; }
+    .title { fill: #222222; font: 700 15px Arial, sans-serif; letter-spacing: .1px; }
+    .field { fill: #222222; font: 13px Arial, sans-serif; }
+    .dot { fill: #999999; }
+    .badge { stroke-width: 0; }
+    .badge.pk { fill: #ffe3a3; }
+    .badge.fk { fill: #cfe8ff; }
+    .badge-text { fill: #222222; font: 700 10px Arial, sans-serif; }
+    .edge path { fill: none; stroke: #666666; stroke-width: 1.4; stroke-linecap: square; stroke-linejoin: round; }
+    .card { fill: #333333; font: 700 11px Arial, sans-serif; }
+    .label-bg { fill: #ffffff; stroke: #d0d0d0; }
+    .label { fill: #333333; font: 700 11px Arial, sans-serif; }
+    .diagram-title { fill: #111111; font: 700 24px Arial, sans-serif; letter-spacing: .1px; }
+    .subtitle { fill: #555555; font: 13px Arial, sans-serif; }
+  </style>
+  <rect class="canvas" x="0" y="0" width="900" height="520"/>
+  <text x="48" y="46" class="diagram-title">User Activity ER Diagram</text>
+  <text x="48" y="70" class="subtitle">System users and audit activity records</text>
+  
+    <g class="edge">
+      <path d="M 382 235 L 500 235"/>
+      <text x="400" y="228" text-anchor="middle" class="card">0..1</text>
+      <text x="482" y="228" text-anchor="middle" class="card">0..N</text>
+    </g>
+  
+    <g class="table">
+      <rect x="90" y="130" width="292" height="248" rx="6" class="box"/>
+      <rect x="90" y="130" width="292" height="42" rx="6" class="header"/>
+      <path d="M 90 166 H 382 V 172 H 90 Z" class="header"/>
+      <text x="108" y="157" class="title">users</text>
+      
+      <rect x="106" y="178" width="30" height="18" rx="4" class="badge pk"/>
+         <text x="121" y="191" text-anchor="middle" class="badge-text">PK</text>
+      <text x="148" y="192" class="field">id</text>
+      <circle cx="121" cy="211" r="2.5" class="dot"/>
+      <text x="148" y="216" class="field">full_name</text>
+      <circle cx="121" cy="235" r="2.5" class="dot"/>
+      <text x="148" y="240" class="field">email</text>
+      <circle cx="121" cy="259" r="2.5" class="dot"/>
+      <text x="148" y="264" class="field">username</text>
+      <circle cx="121" cy="283" r="2.5" class="dot"/>
+      <text x="148" y="288" class="field">password_hash</text>
+      <circle cx="121" cy="307" r="2.5" class="dot"/>
+      <text x="148" y="312" class="field">role</text>
+      <circle cx="121" cy="331" r="2.5" class="dot"/>
+      <text x="148" y="336" class="field">status</text>
+      <circle cx="121" cy="355" r="2.5" class="dot"/>
+      <text x="148" y="360" class="field">created_at</text>
+    </g>
+    <g class="table">
+      <rect x="500" y="155" width="292" height="224" rx="6" class="box"/>
+      <rect x="500" y="155" width="292" height="42" rx="6" class="header"/>
+      <path d="M 500 191 H 792 V 197 H 500 Z" class="header"/>
+      <text x="518" y="182" class="title">activity_log</text>
+      
+      <rect x="516" y="203" width="30" height="18" rx="4" class="badge pk"/>
+         <text x="531" y="216" text-anchor="middle" class="badge-text">PK</text>
+      <text x="558" y="217" class="field">id</text>
+      <rect x="516" y="227" width="30" height="18" rx="4" class="badge fk"/>
+         <text x="531" y="240" text-anchor="middle" class="badge-text">FK</text>
+      <text x="558" y="241" class="field">user_id</text>
+      <circle cx="531" cy="260" r="2.5" class="dot"/>
+      <text x="558" y="265" class="field">entity_type</text>
+      <circle cx="531" cy="284" r="2.5" class="dot"/>
+      <text x="558" y="289" class="field">entity_id</text>
+      <circle cx="531" cy="308" r="2.5" class="dot"/>
+      <text x="558" y="313" class="field">action</text>
+      <circle cx="531" cy="332" r="2.5" class="dot"/>
+      <text x="558" y="337" class="field">details</text>
+      <circle cx="531" cy="356" r="2.5" class="dot"/>
+      <text x="558" y="361" class="field">action_time</text>
+    </g>
+</svg>

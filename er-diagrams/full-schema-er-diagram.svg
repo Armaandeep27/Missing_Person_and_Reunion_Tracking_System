@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1130" viewBox="0 0 1600 1130">
+  <style>
+    .canvas { fill: #ffffff; }
+    .box { fill: #ffffff; stroke: #b8b8b8; stroke-width: 1.2; }
+    .header { fill: #f2f2f2; stroke: #b8b8b8; stroke-width: 1.2; }
+    .title { fill: #222222; font: 700 15px Arial, sans-serif; letter-spacing: .1px; }
+    .field { fill: #222222; font: 13px Arial, sans-serif; }
+    .dot { fill: #999999; }
+    .badge { stroke-width: 0; }
+    .badge.pk { fill: #ffe3a3; }
+    .badge.fk { fill: #cfe8ff; }
+    .badge-text { fill: #222222; font: 700 10px Arial, sans-serif; }
+    .edge path { fill: none; stroke: #666666; stroke-width: 1.4; stroke-linecap: square; stroke-linejoin: round; }
+    .card { fill: #333333; font: 700 11px Arial, sans-serif; }
+    .label-bg { fill: #ffffff; stroke: #d0d0d0; }
+    .label { fill: #333333; font: 700 11px Arial, sans-serif; }
+    .diagram-title { fill: #111111; font: 700 24px Arial, sans-serif; letter-spacing: .1px; }
+    .subtitle { fill: #555555; font: 13px Arial, sans-serif; }
+  </style>
+  <rect class="canvas" x="0" y="0" width="1600" height="1130"/>
+  <text x="48" y="46" class="diagram-title">Missing Track ER Diagram</text>
+  <text x="48" y="70" class="subtitle">Complete relational schema with primary keys, foreign keys, and cardinalities</text>
+  
+    <g class="edge">
+      <path d="M 216 378 L 216 475"/>
+      <text x="216" y="389" text-anchor="middle" class="card">0..1</text>
+      <text x="216" y="450" text-anchor="middle" class="card">0..N</text>
+    </g>
+    <g class="edge">
+      <path d="M 601 387 L 601 455"/>
+      <text x="601" y="398" text-anchor="middle" class="card">1</text>
+      <text x="601" y="430" text-anchor="middle" class="card">0..N</text>
+    </g>
+    <g class="edge">
+      <path d="M 747 245 L 991 245 L 991 455"/>
+      <text x="765" y="238" text-anchor="middle" class="card">0..1</text>
+      <text x="991" y="430" text-anchor="middle" class="card">0..N</text>
+    </g>
+    <g class="edge">
+      <path d="M 747 620 L 845 620"/>
+      <text x="765" y="613" text-anchor="middle" class="card">0..1</text>
+      <text x="827" y="613" text-anchor="middle" class="card">0..N</text>
+    </g>
+    <g class="edge">
+      <path d="M 747 548 L 1120 548 L 1120 215 L 1235 215"/>
+      <text x="765" y="541" text-anchor="middle" class="card">1</text>
+      <text x="1217" y="208" text-anchor="middle" class="card">0..N</text>
+    </g>
+    <g class="edge">
+      <path d="M 747 710 L 805 710 L 805 835 L 1180 835 L 1180 505 L 1235 505"/>
+      <text x="765" y="703" text-anchor="middle" class="card">1</text>
+      <text x="1217" y="498" text-anchor="middle" class="card">0..N</text>
+    </g>
+    <g class="edge">
+      <path d="M 601 799 L 601 935 L 845 935"/>
+      <text x="601" y="810" text-anchor="middle" class="card">1</text>
+      <text x="827" y="928" text-anchor="middle" class="card">0..N</text>
+    </g>
+  
+    <g class="table">
+      <rect x="70" y="130" width="292" height="248" rx="6" class="box"/>
+      <rect x="70" y="130" width="292" height="42" rx="6" class="header"/>
+      <path d="M 70 166 H 362 V 172 H 70 Z" class="header"/>
+      <text x="88" y="157" class="title">users</text>
+      
+      <rect x="86" y="178" width="30" height="18" rx="4" class="badge pk"/>
+         <text x="101" y="191" text-anchor="middle" class="badge-text">PK</text>
+      <text x="128" y="192" class="field">id</text>
+      <circle cx="101" cy="211" r="2.5" class="dot"/>
+      <text x="128" y="216" class="field">full_name</text>
+      <circle cx="101" cy="235" r="2.5" class="dot"/>
+      <text x="128" y="240" class="field">email</text>
+      <circle cx="101" cy="259" r="2.5" class="dot"/>
+      <text x="128" y="264" class="field">username</text>
+      <circle cx="101" cy="283" r="2.5" class="dot"/>
+      <text x="128" y="288" class="field">password_hash</text>
+      <circle cx="101" cy="307" r="2.5" class="dot"/>
+      <text x="128" y="312" class="field">role</text>
+      <circle cx="101" cy="331" r="2.5" class="dot"/>
+      <text x="128" y="336" class="field">status</text>
+      <circle cx="101" cy="355" r="2.5" class="dot"/>
+      <text x="128" y="360" class="field">created_at</text>
+    </g>
+    <g class="table">
+      <rect x="70" y="475" width="292" height="224" rx="6" class="box"/>
+      <rect x="70" y="475" width="292" height="42" rx="6" class="header"/>
+      <path d="M 70 511 H 362 V 517 H 70 Z" class="header"/>
+      <text x="88" y="502" class="title">activity_log</text>
+      
+      <rect x="86" y="523" width="30" height="18" rx="4" class="badge pk"/>
+         <text x="101" y="536" text-anchor="middle" class="badge-text">PK</text>
+      <text x="128" y="537" class="field">id</text>
+      <rect x="86" y="547" width="30" height="18" rx="4" class="badge fk"/>
+         <text x="101" y="560" text-anchor="middle" class="badge-text">FK</text>
+      <text x="128" y="561" class="field">user_id</text>
+      <circle cx="101" cy="580" r="2.5" class="dot"/>
+      <text x="128" y="585" class="field">entity_type</text>
+      <circle cx="101" cy="604" r="2.5" class="dot"/>
+      <text x="128" y="609" class="field">entity_id</text>
+      <circle cx="101" cy="628" r="2.5" class="dot"/>
+      <text x="128" y="633" class="field">action</text>
+      <circle cx="101" cy="652" r="2.5" class="dot"/>
+      <text x="128" y="657" class="field">details</text>
+      <circle cx="101" cy="676" r="2.5" class="dot"/>
+      <text x="128" y="681" class="field">action_time</text>
+    </g>
+    <g class="table">
+      <rect x="455" y="115" width="292" height="272" rx="6" class="box"/>
+      <rect x="455" y="115" width="292" height="42" rx="6" class="header"/>
+      <path d="M 455 151 H 747 V 157 H 455 Z" class="header"/>
+      <text x="473" y="142" class="title">agencies</text>
+      
+      <rect x="471" y="163" width="30" height="18" rx="4" class="badge pk"/>
+         <text x="486" y="176" text-anchor="middle" class="badge-text">PK</text>
+      <text x="513" y="177" class="field">id</text>
+      <circle cx="486" cy="196" r="2.5" class="dot"/>
+      <text x="513" y="201" class="field">agency_code</text>
+      <circle cx="486" cy="220" r="2.5" class="dot"/>
+      <text x="513" y="225" class="field">agency_name</text>
+      <circle cx="486" cy="244" r="2.5" class="dot"/>
+      <text x="513" y="249" class="field">agency_type</text>
+      <circle cx="486" cy="268" r="2.5" class="dot"/>
+      <text x="513" y="273" class="field">contact_person</text>
+      <circle cx="486" cy="292" r="2.5" class="dot"/>
+      <text x="513" y="297" class="field">phone</text>
+      <circle cx="486" cy="316" r="2.5" class="dot"/>
+      <text x="513" y="321" class="field">email</text>
+      <circle cx="486" cy="340" r="2.5" class="dot"/>
+      <text x="513" y="345" class="field">city</text>
+      <circle cx="486" cy="364" r="2.5" class="dot"/>
+      <text x="513" y="369" class="field">state</text>
+    </g>
+    <g class="table">
+      <rect x="455" y="455" width="292" height="344" rx="6" class="box"/>
+      <rect x="455" y="455" width="292" height="42" rx="6" class="header"/>
+      <path d="M 455 491 H 747 V 497 H 455 Z" class="header"/>
+      <text x="473" y="482" class="title">missing_persons</text>
+      
+      <rect x="471" y="503" width="30" height="18" rx="4" class="badge pk"/>
+         <text x="486" y="516" text-anchor="middle" class="badge-text">PK</text>
+      <text x="513" y="517" class="field">id</text>
+      <circle cx="486" cy="536" r="2.5" class="dot"/>
+      <text x="513" y="541" class="field">case_no</text>
+      <circle cx="486" cy="560" r="2.5" class="dot"/>
+      <text x="513" y="565" class="field">full_name</text>
+      <circle cx="486" cy="584" r="2.5" class="dot"/>
+      <text x="513" y="589" class="field">gender</text>
+      <circle cx="486" cy="608" r="2.5" class="dot"/>
+      <text x="513" y="613" class="field">age</text>
+      <circle cx="486" cy="632" r="2.5" class="dot"/>
+      <text x="513" y="637" class="field">guardian_name</text>
+      <circle cx="486" cy="656" r="2.5" class="dot"/>
+      <text x="513" y="661" class="field">guardian_phone</text>
+      <circle cx="486" cy="680" r="2.5" class="dot"/>
+      <text x="513" y="685" class="field">last_seen_date</text>
+      <circle cx="486" cy="704" r="2.5" class="dot"/>
+      <text x="513" y="709" class="field">last_seen_location</text>
+      <circle cx="486" cy="728" r="2.5" class="dot"/>
+      <text x="513" y="733" class="field">status</text>
+      <circle cx="486" cy="752" r="2.5" class="dot"/>
+      <text x="513" y="757" class="field">rehabilitation_status</text>
+      <rect x="471" y="767" width="30" height="18" rx="4" class="badge fk"/>
+         <text x="486" y="780" text-anchor="middle" class="badge-text">FK</text>
+      <text x="513" y="781" class="field">assigned_agency_id</text>
+    </g>
+    <g class="table">
+      <rect x="845" y="455" width="292" height="320" rx="6" class="box"/>
+      <rect x="845" y="455" width="292" height="42" rx="6" class="header"/>
+      <path d="M 845 491 H 1137 V 497 H 845 Z" class="header"/>
+      <text x="863" y="482" class="title">support_programs</text>
+      
+      <rect x="861" y="503" width="30" height="18" rx="4" class="badge pk"/>
+         <text x="876" y="516" text-anchor="middle" class="badge-text">PK</text>
+      <text x="903" y="517" class="field">id</text>
+      <rect x="861" y="527" width="30" height="18" rx="4" class="badge fk"/>
+         <text x="876" y="540" text-anchor="middle" class="badge-text">FK</text>
+      <text x="903" y="541" class="field">person_id</text>
+      <circle cx="876" cy="560" r="2.5" class="dot"/>
+      <text x="903" y="565" class="field">target_type</text>
+      <rect x="861" y="575" width="30" height="18" rx="4" class="badge fk"/>
+         <text x="876" y="588" text-anchor="middle" class="badge-text">FK</text>
+      <text x="903" y="589" class="field">target_agency_id</text>
+      <circle cx="876" cy="608" r="2.5" class="dot"/>
+      <text x="903" y="613" class="field">donation_group_id</text>
+      <circle cx="876" cy="632" r="2.5" class="dot"/>
+      <text x="903" y="637" class="field">sponsor_name</text>
+      <circle cx="876" cy="656" r="2.5" class="dot"/>
+      <text x="903" y="661" class="field">sponsor_phone</text>
+      <circle cx="876" cy="680" r="2.5" class="dot"/>
+      <text x="903" y="685" class="field">support_type</text>
+      <circle cx="876" cy="704" r="2.5" class="dot"/>
+      <text x="903" y="709" class="field">amount</text>
+      <circle cx="876" cy="728" r="2.5" class="dot"/>
+      <text x="903" y="733" class="field">start_date</text>
+      <circle cx="876" cy="752" r="2.5" class="dot"/>
+      <text x="903" y="757" class="field">status</text>
+    </g>
+    <g class="table">
+      <rect x="1235" y="100" width="292" height="248" rx="6" class="box"/>
+      <rect x="1235" y="100" width="292" height="42" rx="6" class="header"/>
+      <path d="M 1235 136 H 1527 V 142 H 1235 Z" class="header"/>
+      <text x="1253" y="127" class="title">sightings</text>
+      
+      <rect x="1251" y="148" width="30" height="18" rx="4" class="badge pk"/>
+         <text x="1266" y="161" text-anchor="middle" class="badge-text">PK</text>
+      <text x="1293" y="162" class="field">id</text>
+      <rect x="1251" y="172" width="30" height="18" rx="4" class="badge fk"/>
+         <text x="1266" y="185" text-anchor="middle" class="badge-text">FK</text>
+      <text x="1293" y="186" class="field">case_id</text>
+      <circle cx="1266" cy="205" r="2.5" class="dot"/>
+      <text x="1293" y="210" class="field">reported_by_name</text>
+      <circle cx="1266" cy="229" r="2.5" class="dot"/>
+      <text x="1293" y="234" class="field">reporter_phone</text>
+      <circle cx="1266" cy="253" r="2.5" class="dot"/>
+      <text x="1293" y="258" class="field">location</text>
+      <circle cx="1266" cy="277" r="2.5" class="dot"/>
+      <text x="1293" y="282" class="field">sighting_date</text>
+      <circle cx="1266" cy="301" r="2.5" class="dot"/>
+      <text x="1293" y="306" class="field">confidence</text>
+      <circle cx="1266" cy="325" r="2.5" class="dot"/>
+      <text x="1293" y="330" class="field">status</text>
+    </g>
+    <g class="table">
+      <rect x="1235" y="385" width="292" height="224" rx="6" class="box"/>
+      <rect x="1235" y="385" width="292" height="42" rx="6" class="header"/>
+      <path d="M 1235 421 H 1527 V 427 H 1235 Z" class="header"/>
+      <text x="1253" y="412" class="title">rehabilitation_records</text>
+      
+      <rect x="1251" y="433" width="30" height="18" rx="4" class="badge pk"/>
+         <text x="1266" y="446" text-anchor="middle" class="badge-text">PK</text>
+      <text x="1293" y="447" class="field">id</text>
+      <rect x="1251" y="457" width="30" height="18" rx="4" class="badge fk"/>
+         <text x="1266" y="470" text-anchor="middle" class="badge-text">FK</text>
+      <text x="1293" y="471" class="field">person_id</text>
+      <circle cx="1266" cy="490" r="2.5" class="dot"/>
+      <text x="1293" y="495" class="field">shelter_name</text>
+      <circle cx="1266" cy="514" r="2.5" class="dot"/>
+      <text x="1293" y="519" class="field">health_status</text>
+      <circle cx="1266" cy="538" r="2.5" class="dot"/>
+      <text x="1293" y="543" class="field">counselling_status</text>
+      <circle cx="1266" cy="562" r="2.5" class="dot"/>
+      <text x="1293" y="567" class="field">education_support</text>
+      <circle cx="1266" cy="586" r="2.5" class="dot"/>
+      <text x="1293" y="591" class="field">status</text>
+    </g>
+    <g class="table">
+      <rect x="845" y="815" width="292" height="224" rx="6" class="box"/>
+      <rect x="845" y="815" width="292" height="42" rx="6" class="header"/>
+      <path d="M 845 851 H 1137 V 857 H 845 Z" class="header"/>
+      <text x="863" y="842" class="title">reunions</text>
+      
+      <rect x="861" y="863" width="30" height="18" rx="4" class="badge pk"/>
+         <text x="876" y="876" text-anchor="middle" class="badge-text">PK</text>
+      <text x="903" y="877" class="field">id</text>
+      <rect x="861" y="887" width="30" height="18" rx="4" class="badge fk"/>
+         <text x="876" y="900" text-anchor="middle" class="badge-text">FK</text>
+      <text x="903" y="901" class="field">person_id</text>
+      <circle cx="876" cy="920" r="2.5" class="dot"/>
+      <text x="903" y="925" class="field">reunion_date</text>
+      <circle cx="876" cy="944" r="2.5" class="dot"/>
+      <text x="903" y="949" class="field">family_contact</text>
+      <circle cx="876" cy="968" r="2.5" class="dot"/>
+      <text x="903" y="973" class="field">verified_by</text>
+      <circle cx="876" cy="992" r="2.5" class="dot"/>
+      <text x="903" y="997" class="field">outcome</text>
+      <circle cx="876" cy="1016" r="2.5" class="dot"/>
+      <text x="903" y="1021" class="field">created_at</text>
+    </g>
+</svg>
