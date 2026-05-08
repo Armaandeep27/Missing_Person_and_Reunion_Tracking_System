@@ -3,6 +3,9 @@ CREATE DATABASE IF NOT EXISTS defaultdb CHARACTER SET utf8mb4 COLLATE utf8mb4_un
 USE defaultdb;
 
 SET FOREIGN_KEY_CHECKS = 0;
+DROP PROCEDURE IF EXISTS mark_case_reunited;
+DROP TRIGGER IF EXISTS trg_sighting_verified;
+DROP TRIGGER IF EXISTS trg_reunion_insert;
 DROP TABLE IF EXISTS activity_log;
 DROP TABLE IF EXISTS reunions;
 DROP TABLE IF EXISTS support_programs;
