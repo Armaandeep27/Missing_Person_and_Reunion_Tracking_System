@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="520" height="402" viewBox="0 0 520 402">
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="436" viewBox="0 0 520 436">
   <style>
     .canvas { fill: #fffdf8; }
     .box { fill: #ffffff; stroke: #ad8260; stroke-width: 1.4; }
@@ -11,18 +11,18 @@
     .badge-text { fill: #271e18; font: 700 11px Arial, sans-serif; }
     .dot { fill: #ad8260; }
   </style>
-  <rect class="canvas" x="0" y="0" width="520" height="402"/>
-  <rect class="box" x="18" y="18" width="484" height="366" rx="12"/>
-  <rect class="header" x="18" y="18" width="484" height="62" rx="12"/>
-  <path class="header" d="M 18 68 H 502 V 80 H 18 Z"/>
-  <text x="34" y="56" class="title">rehabilitation_records</text>
-  <rect x="34" y="73" width="44" height="23" rx="5" class="pk"/><text x="56" y="89" text-anchor="middle" class="badge-text">PK</text><text x="100" y="93" class="field">id</text>
-  <rect x="34" y="107" width="44" height="23" rx="5" class="fk"/><text x="56" y="123" text-anchor="middle" class="badge-text">FK</text><text x="100" y="127" class="field">person_id</text>
-  <circle cx="56" cy="152" r="3" class="dot"/><text x="100" y="161" class="field">shelter_name</text>
-  <circle cx="56" cy="186" r="3" class="dot"/><text x="100" y="195" class="field">health_status</text>
-  <circle cx="56" cy="220" r="3" class="dot"/><text x="100" y="229" class="field">counselling_status</text>
-  <circle cx="56" cy="254" r="3" class="dot"/><text x="100" y="263" class="field">education_support</text>
-  <circle cx="56" cy="288" r="3" class="dot"/><text x="100" y="297" class="field">status</text>
-  <circle cx="56" cy="322" r="3" class="dot"/><text x="100" y="331" class="field">notes</text>
-  <circle cx="56" cy="356" r="3" class="dot"/><text x="100" y="365" class="field">updated_at</text>
+  <rect class="canvas" x="0" y="0" width="520" height="436"/>
+  <rect class="box" x="18" y="34" width="484" height="384" rx="12"/>
+  <rect class="header" x="18" y="34" width="484" height="62" rx="12"/>
+  <path class="header" d="M 18 84 H 502 V 96 H 18 Z"/>
+  <text x="34" y="72" class="title">rehabilitation_records</text>
+  <rect x="34" y="107" width="44" height="23" rx="5" class="pk"/><text x="56" y="123" text-anchor="middle" class="badge-text">PK</text><text x="100" y="127" class="field">id</text>
+  <rect x="34" y="141" width="44" height="23" rx="5" class="fk"/><text x="56" y="157" text-anchor="middle" class="badge-text">FK</text><text x="100" y="161" class="field">person_id</text>
+  <circle cx="56" cy="186" r="3" class="dot"/><text x="100" y="195" class="field">shelter_name</text>
+  <circle cx="56" cy="220" r="3" class="dot"/><text x="100" y="229" class="field">health_status</text>
+  <circle cx="56" cy="254" r="3" class="dot"/><text x="100" y="263" class="field">counselling_status</text>
+  <circle cx="56" cy="288" r="3" class="dot"/><text x="100" y="297" class="field">education_support</text>
+  <circle cx="56" cy="322" r="3" class="dot"/><text x="100" y="331" class="field">status</text>
+  <circle cx="56" cy="356" r="3" class="dot"/><text x="100" y="365" class="field">notes</text>
+  <circle cx="56" cy="390" r="3" class="dot"/><text x="100" y="399" class="field">updated_at</text>
 </svg>

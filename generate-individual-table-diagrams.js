@@ -117,11 +117,12 @@ function esc(value) {
 
 function renderTable(name, rows) {
   const width = 520;
+  const topPad = 34;
   const headerHeight = 62;
   const rowHeight = 34;
-  const height = headerHeight + rows.length * rowHeight + 34;
+  const height = topPad + headerHeight + rows.length * rowHeight + 34;
   const rowMarkup = rows.map(([key, field], index) => {
-    const y = headerHeight + 31 + index * rowHeight;
+    const y = topPad + headerHeight + 31 + index * rowHeight;
     const marker = key
       ? `<rect x="34" y="${y - 20}" width="44" height="23" rx="5" class="${key.toLowerCase()}"/><text x="56" y="${y - 4}" text-anchor="middle" class="badge-text">${key}</text>`
       : `<circle cx="56" cy="${y - 9}" r="3" class="dot"/>`;
@@ -142,10 +143,10 @@ function renderTable(name, rows) {
     .dot { fill: #ad8260; }
   </style>
   <rect class="canvas" x="0" y="0" width="${width}" height="${height}"/>
-  <rect class="box" x="18" y="18" width="${width - 36}" height="${height - 36}" rx="12"/>
-  <rect class="header" x="18" y="18" width="${width - 36}" height="${headerHeight}" rx="12"/>
-  <path class="header" d="M 18 68 H ${width - 18} V 80 H 18 Z"/>
-  <text x="34" y="56" class="title">${esc(name)}</text>
+  <rect class="box" x="18" y="${topPad}" width="${width - 36}" height="${height - topPad - 18}" rx="12"/>
+  <rect class="header" x="18" y="${topPad}" width="${width - 36}" height="${headerHeight}" rx="12"/>
+  <path class="header" d="M 18 ${topPad + headerHeight - 12} H ${width - 18} V ${topPad + headerHeight} H 18 Z"/>
+  <text x="34" y="${topPad + 38}" class="title">${esc(name)}</text>
   ${rowMarkup}
 </svg>`;
 }
