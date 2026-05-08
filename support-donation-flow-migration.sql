@@ -1,7 +1,4 @@
--- Support donation flow migration
--- Run this once on an existing Missing Track database.
--- Do not run it again after the columns already exist.
-
+﻿
 USE defaultdb;
 
 ALTER TABLE support_programs

@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1040" viewBox="0 0 1500 1040">
+  <style>
+    .canvas { fill: #fffefd; }
+    .connector { stroke: #6f6f6f; stroke-width: 1.5; fill: none; stroke-linecap: round; }
+    .entity rect { fill: #ffffff; stroke: #555555; stroke-width: 1.5; }
+    .entity text { fill: #222222; font: 700 13px Arial, sans-serif; letter-spacing: .4px; }
+    .attribute ellipse { fill: #ffffff; stroke: #777777; stroke-width: 1.3; }
+    .attribute text { fill: #222222; font: 12px Arial, sans-serif; }
+    .attribute .underline { stroke: #222222; stroke-width: 1; }
+    .relationship polygon { fill: #ffffff; stroke: #555555; stroke-width: 1.5; }
+    .relationship text { fill: #222222; font: 700 11px Arial, sans-serif; }
+    .title { fill: #111111; font: 700 24px Arial, sans-serif; }
+    .subtitle { fill: #555555; font: 13px Arial, sans-serif; }
+  </style>
+  <rect class="canvas" x="0" y="0" width="1500" height="1040"/>
+  <text x="48" y="46" class="title">Missing Track Chen-Style ER Diagram</text>
+  <text x="48" y="70" class="subtitle">Project-context conceptual ER model based on the full schema diagram</text>
+  
+    <g id="users" class="entity">
+      <rect x="686" y="116" width="148" height="48" rx="8"/>
+      <text x="760" y="145" text-anchor="middle">USERS</text>
+    </g>
+
+    <g class="attribute key">
+      <ellipse cx="620" cy="65" rx="48" ry="22"/>
+      <text x="620" y="70" text-anchor="middle">user_id</text>
+      <line x1="590" y1="75" x2="650" y2="75" class="underline"/>
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="760" cy="55" rx="48" ry="22"/>
+      <text x="760" y="60" text-anchor="middle">full_name</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="910" cy="75" rx="48" ry="22"/>
+      <text x="910" y="80" text-anchor="middle">email</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="570" cy="145" rx="48" ry="22"/>
+      <text x="570" y="150" text-anchor="middle">username</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="965" cy="145" rx="58.5" ry="22"/>
+      <text x="965" y="150" text-anchor="middle">password_hash</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="650" cy="220" rx="48" ry="22"/>
+      <text x="650" y="225" text-anchor="middle">role</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="850" cy="220" rx="48" ry="22"/>
+      <text x="850" y="225" text-anchor="middle">status</text>
+      
+    </g>
+
+    <line x1="700" y1="116" x2="635" y2="76" class="connector"/>
+    
+
+    <line x1="760" y1="116" x2="760" y2="77" class="connector"/>
+    
+
+    <line x1="820" y1="116" x2="890" y2="86" class="connector"/>
+    
+
+    <line x1="686" y1="140" x2="620" y2="145" class="connector"/>
+    
+
+    <line x1="834" y1="140" x2="900" y2="145" class="connector"/>
+    
+
+    <line x1="705" y1="164" x2="670" y2="206" class="connector"/>
+    
+
+    <line x1="815" y1="164" x2="835" y2="204" class="connector"/>
+    
+
+    <g id="activity" class="entity">
+      <rect x="256" y="181" width="148" height="48" rx="8"/>
+      <text x="330" y="210" text-anchor="middle">ACTIVITY_LOG</text>
+    </g>
+
+    <g class="attribute key">
+      <ellipse cx="185" cy="130" rx="48" ry="22"/>
+      <text x="185" y="135" text-anchor="middle">log_id</text>
+      <line x1="155" y1="140" x2="215" y2="140" class="underline"/>
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="180" cy="205" rx="49.5" ry="22"/>
+      <text x="180" y="210" text-anchor="middle">entity_type</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="190" cy="275" rx="48" ry="22"/>
+      <text x="190" y="280" text-anchor="middle">action</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="335" cy="315" rx="49.5" ry="22"/>
+      <text x="335" y="320" text-anchor="middle">action_time</text>
+      
+    </g>
+
+    <line x1="270" y1="181" x2="210" y2="142" class="connector"/>
+    
+
+    <line x1="256" y1="205" x2="230" y2="205" class="connector"/>
+    
+
+    <line x1="270" y1="229" x2="220" y2="265" class="connector"/>
+    
+
+    <line x1="330" y1="229" x2="335" y2="293" class="connector"/>
+    
+
+    <g id="performs" class="relationship">
+      <polygon points="545,144 615,180 545,216 475,180"/>
+      <text x="545" y="185" text-anchor="middle">PERFORMS</text>
+    </g>
+
+    <line x1="400" y1="201" x2="471" y2="180" class="connector"/>
+    <line x1="408" y1="209" x2="479" y2="188" class="connector"/>
+
+    <line x1="615" y1="172" x2="686" y2="148" class="connector"/>
+    
+
+    <g id="agencies" class="entity">
+      <rect x="191" y="421" width="148" height="48" rx="8"/>
+      <text x="265" y="450" text-anchor="middle">AGENCIES</text>
+    </g>
+
+    <g class="attribute key">
+      <ellipse cx="100" cy="365" rx="48" ry="22"/>
+      <text x="100" y="370" text-anchor="middle">agency_id</text>
+      <line x1="69.4" y1="375" x2="130.6" y2="375" class="underline"/>
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="105" cy="445" rx="49.5" ry="22"/>
+      <text x="105" y="450" text-anchor="middle">agency_name</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="115" cy="525" rx="49.5" ry="22"/>
+      <text x="115" y="530" text-anchor="middle">agency_type</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="285" cy="585" rx="58.5" ry="22"/>
+      <text x="285" y="590" text-anchor="middle">contact_phone</text>
+      
+    </g>
+
+    <line x1="205" y1="421" x2="135" y2="375" class="connector"/>
+    
+
+    <line x1="191" y1="445" x2="160" y2="445" class="connector"/>
+    
+
+    <line x1="205" y1="469" x2="145" y2="515" class="connector"/>
+    
+
+    <line x1="270" y1="469" x2="282" y2="563" class="connector"/>
+    
+
+    <g id="missing" class="entity">
+      <rect x="686" y="431" width="148" height="48" rx="8"/>
+      <text x="760" y="460" text-anchor="middle">MISSING_PERSONS</text>
+    </g>
+
+    <g class="attribute key">
+      <ellipse cx="570" cy="330" rx="48" ry="22"/>
+      <text x="570" y="335" text-anchor="middle">person_id</text>
+      <line x1="539.4" y1="340" x2="600.6" y2="340" class="underline"/>
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="745" cy="310" rx="48" ry="22"/>
+      <text x="745" y="315" text-anchor="middle">case_no</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="930" cy="330" rx="48" ry="22"/>
+      <text x="930" y="335" text-anchor="middle">full_name</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="555" cy="430" rx="48" ry="22"/>
+      <text x="555" y="435" text-anchor="middle">gender</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="955" cy="430" rx="48" ry="22"/>
+      <text x="955" y="435" text-anchor="middle">age</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="565" cy="520" rx="81" ry="22"/>
+      <text x="565" y="525" text-anchor="middle">last_seen_location</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="945" cy="520" rx="49.5" ry="22"/>
+      <text x="945" y="525" text-anchor="middle">case_status</text>
+      
+    </g>
+
+    <line x1="700" y1="431" x2="595" y2="342" class="connector"/>
+    
+
+    <line x1="750" y1="431" x2="745" y2="332" class="connector"/>
+    
+
+    <line x1="820" y1="431" x2="900" y2="342" class="connector"/>
+    
+
+    <line x1="686" y1="455" x2="605" y2="430" class="connector"/>
+    
+
+    <line x1="834" y1="455" x2="908" y2="430" class="connector"/>
+    
+
+    <line x1="700" y1="479" x2="605" y2="510" class="connector"/>
+    
+
+    <line x1="820" y1="479" x2="900" y2="510" class="connector"/>
+    
+
+    <g id="assigned" class="relationship">
+      <polygon points="510,409 580,445 510,481 440,445"/>
+      <text x="510" y="450" text-anchor="middle">ASSIGNED_TO</text>
+    </g>
+
+    <line x1="339" y1="441" x2="440" y2="441" class="connector"/>
+    <line x1="339" y1="449" x2="440" y2="449" class="connector"/>
+
+    <line x1="580" y1="441" x2="686" y2="441" class="connector"/>
+    <line x1="580" y1="449" x2="686" y2="449" class="connector"/>
+
+    <g id="sightings" class="entity">
+      <rect x="1136" y="251" width="148" height="48" rx="8"/>
+      <text x="1210" y="280" text-anchor="middle">SIGHTINGS</text>
+    </g>
+
+    <g class="attribute key">
+      <ellipse cx="1050" cy="190" rx="49.5" ry="22"/>
+      <text x="1050" y="195" text-anchor="middle">sighting_id</text>
+      <line x1="1012.6" y1="200" x2="1087.4" y2="200" class="underline"/>
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="1220" cy="170" rx="49.5" ry="22"/>
+      <text x="1220" y="175" text-anchor="middle">reported_by</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="1385" cy="215" rx="48" ry="22"/>
+      <text x="1385" y="220" text-anchor="middle">location</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="1385" cy="305" rx="48" ry="22"/>
+      <text x="1385" y="310" text-anchor="middle">confidence</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="1210" cy="375" rx="67.5" ry="22"/>
+      <text x="1210" y="380" text-anchor="middle">sighting_status</text>
+      
+    </g>
+
+    <line x1="1150" y1="251" x2="1085" y2="202" class="connector"/>
+    
+
+    <line x1="1210" y1="251" x2="1220" y2="192" class="connector"/>
+    
+
+    <line x1="1284" y1="275" x2="1345" y2="225" class="connector"/>
+    
+
+    <line x1="1284" y1="285" x2="1345" y2="300" class="connector"/>
+    
+
+    <line x1="1210" y1="299" x2="1210" y2="353" class="connector"/>
+    
+
+    <g id="has_sighting" class="relationship">
+      <polygon points="1020,319 1090,355 1020,391 950,355"/>
+      <text x="1020" y="360" text-anchor="middle">HAS_SIGHTING</text>
+    </g>
+
+    <line x1="830" y1="426" x2="946" y2="361" class="connector"/>
+    <line x1="838" y1="434" x2="954" y2="369" class="connector"/>
+
+    <line x1="1086" y1="346" x2="1132" y2="288" class="connector"/>
+    <line x1="1094" y1="354" x2="1140" y2="296" class="connector"/>
+
+    <g id="rehab" class="entity">
+      <rect x="1166" y="546" width="148" height="48" rx="8"/>
+      <text x="1240" y="575" text-anchor="middle">REHABILITATION</text>
+    </g>
+
+    <g class="attribute key">
+      <ellipse cx="1065" cy="500" rx="48" ry="22"/>
+      <text x="1065" y="505" text-anchor="middle">rehab_id</text>
+      <line x1="1035" y1="510" x2="1095" y2="510" class="underline"/>
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="1405" cy="500" rx="54" ry="22"/>
+      <text x="1405" y="505" text-anchor="middle">shelter_name</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="1430" cy="570" rx="58.5" ry="22"/>
+      <text x="1430" y="575" text-anchor="middle">health_status</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="1395" cy="645" rx="81" ry="22"/>
+      <text x="1395" y="650" text-anchor="middle">counselling_status</text>
+      
+    </g>
+
+    <line x1="1180" y1="546" x2="1100" y2="512" class="connector"/>
+    
+
+    <line x1="1300" y1="546" x2="1360" y2="512" class="connector"/>
+    
+
+    <line x1="1314" y1="570" x2="1375" y2="570" class="connector"/>
+    
+
+    <line x1="1300" y1="594" x2="1350" y2="635" class="connector"/>
+    
+
+    <g id="rehab_rel" class="relationship">
+      <polygon points="1025,534 1095,570 1025,606 955,570"/>
+      <text x="1025" y="575" text-anchor="middle">REHAB_TRACKS</text>
+    </g>
+
+    <line x1="830" y1="476" x2="951" y2="551" class="connector"/>
+    <line x1="838" y1="484" x2="959" y2="559" class="connector"/>
+
+    <line x1="1095" y1="566" x2="1166" y2="566" class="connector"/>
+    <line x1="1095" y1="574" x2="1166" y2="574" class="connector"/>
+
+    <g id="support" class="entity">
+      <rect x="786" y="796" width="148" height="48" rx="8"/>
+      <text x="860" y="825" text-anchor="middle">SUPPORT_PROGRAMS</text>
+    </g>
+
+    <g class="attribute key">
+      <ellipse cx="665" cy="740" rx="48" ry="22"/>
+      <text x="665" y="745" text-anchor="middle">support_id</text>
+      <line x1="631" y1="750" x2="699" y2="750" class="underline"/>
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="865" cy="710" rx="54" ry="22"/>
+      <text x="865" y="715" text-anchor="middle">support_type</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="1055" cy="740" rx="48" ry="22"/>
+      <text x="1055" y="745" text-anchor="middle">amount</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="650" cy="840" rx="54" ry="22"/>
+      <text x="650" y="845" text-anchor="middle">sponsor_name</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="1080" cy="840" rx="49.5" ry="22"/>
+      <text x="1080" y="845" text-anchor="middle">target_type</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="860" cy="930" rx="76.5" ry="22"/>
+      <text x="860" y="935" text-anchor="middle">donation_group_id</text>
+      
+    </g>
+
+    <line x1="800" y1="796" x2="700" y2="752" class="connector"/>
+    
+
+    <line x1="860" y1="796" x2="865" y2="732" class="connector"/>
+    
+
+    <line x1="920" y1="796" x2="1018" y2="752" class="connector"/>
+    
+
+    <line x1="786" y1="820" x2="700" y2="840" class="connector"/>
+    
+
+    <line x1="934" y1="820" x2="1030" y2="840" class="connector"/>
+    
+
+    <line x1="860" y1="844" x2="860" y2="908" class="connector"/>
+    
+
+    <g id="receives_support" class="relationship">
+      <polygon points="760,614 830,650 760,686 690,650"/>
+      <text x="760" y="655" text-anchor="middle">RECEIVES</text>
+    </g>
+
+    <line x1="756" y1="479" x2="756" y2="614" class="connector"/>
+    <line x1="764" y1="479" x2="764" y2="614" class="connector"/>
+
+    <line x1="786" y1="682" x2="838" y2="792" class="connector"/>
+    <line x1="794" y1="690" x2="846" y2="800" class="connector"/>
+
+    <g id="agency_support" class="relationship">
+      <polygon points="500,669 570,705 500,741 430,705"/>
+      <text x="500" y="710" text-anchor="middle">AGENCY_SUPPORT</text>
+    </g>
+
+    <line x1="310" y1="469" x2="455" y2="680" class="connector"/>
+    
+
+    <line x1="570" y1="705" x2="786" y2="812" class="connector"/>
+    
+
+    <g id="reunions" class="entity">
+      <rect x="276" y="796" width="148" height="48" rx="8"/>
+      <text x="350" y="825" text-anchor="middle">REUNIONS</text>
+    </g>
+
+    <g class="attribute key">
+      <ellipse cx="160" cy="745" rx="48" ry="22"/>
+      <text x="160" y="750" text-anchor="middle">reunion_id</text>
+      <line x1="126" y1="755" x2="194" y2="755" class="underline"/>
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="170" cy="840" rx="63" ry="22"/>
+      <text x="170" y="845" text-anchor="middle">family_contact</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="350" cy="930" rx="54" ry="22"/>
+      <text x="350" y="935" text-anchor="middle">reunion_date</text>
+      
+    </g>
+
+    <g class="attribute ">
+      <ellipse cx="525" cy="865" rx="48" ry="22"/>
+      <text x="525" y="870" text-anchor="middle">outcome</text>
+      
+    </g>
+
+    <line x1="290" y1="796" x2="195" y2="756" class="connector"/>
+    
+
+    <line x1="276" y1="820" x2="220" y2="835" class="connector"/>
+    
+
+    <line x1="350" y1="844" x2="350" y2="908" class="connector"/>
+    
+
+    <line x1="424" y1="830" x2="485" y2="858" class="connector"/>
+    
+
+    <g id="reunited_in" class="relationship">
+      <polygon points="530,619 600,655 530,691 460,655"/>
+      <text x="530" y="660" text-anchor="middle">REUNITED_IN</text>
+    </g>
+
+    <line x1="696" y1="475" x2="581" y2="626" class="connector"/>
+    <line x1="704" y1="483" x2="589" y2="634" class="connector"/>
+
+    <line x1="496" y1="686" x2="376" y2="792" class="connector"/>
+    <line x1="504" y1="694" x2="384" y2="800" class="connector"/>
+</svg>

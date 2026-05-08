@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="334" viewBox="0 0 520 334">
+  <style>
+    .canvas { fill: #fffdf8; }
+    .box { fill: #ffffff; stroke: #ad8260; stroke-width: 1.4; }
+    .header { fill: #f5e6ca; stroke: #ad8260; stroke-width: 1.4; }
+    .title { fill: #3a2418; font: 700 22px Arial, sans-serif; letter-spacing: .2px; }
+    .field { fill: #271e18; font: 15px Arial, sans-serif; }
+    .pk { fill: #ffe3a3; }
+    .fk { fill: #cfe8ff; }
+    .badge-text { fill: #271e18; font: 700 11px Arial, sans-serif; }
+    .dot { fill: #ad8260; }
+  </style>
+  <rect class="canvas" x="0" y="0" width="520" height="334"/>
+  <rect class="box" x="18" y="18" width="484" height="298" rx="12"/>
+  <rect class="header" x="18" y="18" width="484" height="62" rx="12"/>
+  <path class="header" d="M 18 68 H 502 V 80 H 18 Z"/>
+  <text x="34" y="56" class="title">activity_log</text>
+  <rect x="34" y="73" width="44" height="23" rx="5" class="pk"/><text x="56" y="89" text-anchor="middle" class="badge-text">PK</text><text x="100" y="93" class="field">id</text>
+  <rect x="34" y="107" width="44" height="23" rx="5" class="fk"/><text x="56" y="123" text-anchor="middle" class="badge-text">FK</text><text x="100" y="127" class="field">user_id</text>
+  <circle cx="56" cy="152" r="3" class="dot"/><text x="100" y="161" class="field">entity_type</text>
+  <circle cx="56" cy="186" r="3" class="dot"/><text x="100" y="195" class="field">entity_id</text>
+  <circle cx="56" cy="220" r="3" class="dot"/><text x="100" y="229" class="field">action</text>
+  <circle cx="56" cy="254" r="3" class="dot"/><text x="100" y="263" class="field">details</text>
+  <circle cx="56" cy="288" r="3" class="dot"/><text x="100" y="297" class="field">action_time</text>
+</svg>
