@@ -4,3 +4,4 @@ generate-er-diagrams.js
 generate-chen-er-diagrams.js
 generate-chen-er-excalidraw.js
 generate-individual-table-diagrams.js
+server.log
